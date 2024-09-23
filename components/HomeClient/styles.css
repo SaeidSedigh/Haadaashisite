@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.HeaderFixer{
+  @apply w-full
+   fixed
+    flex
+     justify-center
+     max-w-screen-lg
+     top-0;
+}
+.MainHeader{
+  @apply 
+w-full 
+ py-1 
+  z-20
+   relative
+    left-0
+     top-0;
+  background: #19196f;
+  height: 200px;
+}
+ .MainHeader > *{
+  @apply z-20;
+ }
+.MainHeader::after{
+  content: '';
+  @apply w-full z-10 absolute rounded-full left-0 bg-inherit;
+  height:150%;
+  top:100%;
+  min-height: 48px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+/* header Zodiac wheels */
+.gardoon{
+  @apply
+   absolute
+    top-0 
+    z-20 
+    flex 
+    justify-center
+    absolute 
+    top-0 
+    z-20
+    overflow-hidden;
+  height: 95%;
+  width:32%;
+}
+.gardoon:nth-child(1){
+  @apply right-0;
+/*  animation: rotateCounterClockwise 60s linear infinite;*/
+}
+body[direction="fa"] .gardoon{
+  @apply left-0;
+}
+body[direction="fa"] .gardoon:nth-child(1){
+  @apply right-0;
+}
+.gardoon::after{
+  @apply w-full h-full;
+  content: '';
+  background-image: url('/ZodiacWheel.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateX(-50%);
+  animation: rotateClockwise 60s linear infinite;
+}
+.gardoon:nth-child(1)::after{
+  @apply right-0;
+  transform: translateX(50%);
+  animation: rotateCounterClockwise 60s linear infinite;
+}
+body[direction="fa"] .gardoon::after{
+  @apply left-0;
+  animation: rotateClockwise 60s linear infinite;
+  transform: translateX(-50%);
+}
+body[direction="fa"] .gardoon:nth-child(1)::after{
+  @apply right-0;
+  animation: rotateCounterClockwise 60s linear infinite;
+  transform: translateX(50%);
+}
+.MainHeaderContent > .Logo{
+  @apply mx-auto w-auto pr-2 flex justify-center;
+}
+.MainHeaderContent > .Logo > img{
+  height: 10vh;
+  min-width: 91px;
+  min-height: 113px;
+  max-width: 8.9vw;
+  max-height: 10vh;
+}
+.MainHeaderContent{
+  @apply w-full max-w-screen-sm box-border pt-4 relative mx-auto bg-inherit;
+  width:67.7777% !important;
+} 
+.HeaderNavBar{
+  @apply absolute text-xs w-full;
+  top:100%;
+}
+
+.ScrollableContent{
+  @apply z-40 relative;
+  margin-top:400px;
+  height:150vh;
+  width: 100%;
+  background:rebeccapurple;
+}
+
+.StickyNavBar{
+  @apply shadow-xl h-10;
+  background: rgb(192,192,192);
+  background: -moz-linear-gradient(308deg, rgba(192,192,192,1) 0%, rgba(25,25,111,1) 100%);
+  background: -webkit-linear-gradient(308deg, rgba(192,192,192,1) 0%, rgba(25,25,111,1) 100%);
+  background: linear-gradient(308deg, rgba(192,192,192,1) 0%, rgba(25,25,111,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c0c0c0",endColorstr="#19196f",GradientType=1);
+}
+.StickyNavBar::after{
+  content:'';
+  @apply absolute left-0 bottom-0 w-full h-1/2;
+   background: rgb(0,0,0);
+background: -moz-linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1); 
+}
+/* Clockwise rotation */
+@keyframes rotateClockwise {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(-360deg);
+    }
+}
+/* Counterclockwise rotation */
+@keyframes rotateCounterClockwise {
+    0% {
+        transform: translateX(50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(50%) rotate(-360deg);
+    }
+}

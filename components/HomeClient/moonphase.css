@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.LunaContainer{
+	@apply w-full bg-inherit max-w-screen-sm mx-auto flex justify-between;
+	height:2.5rem;
+}
+.MoonPhase{
+	@apply bg-inherit overflow-hidden float-left relative;
+	border-radius: 50%;
+	width: 8.111%;
+	margin:0 2%;
+	max-width: 2.25rem;
+	height: 2.25rem;
+}
+.MoonPhase:before,.MoonPhase:after{
+	content:'';
+	@apply w-full h-full absolute;
+	border-radius: 50%;
+	background:rgba(255, 255, 255, 0.2);
+}
+.MoonPhase:after{
+	@apply bg-inherit;
+}
+
+/* Moon Phases */
+.MoonPhase:nth-child(1),.MoonPhase:nth-child(9){
+	margin-top: 0.4rem;
+}
+.MoonPhase:nth-child(2),.MoonPhase:nth-child(8){
+	margin-top: 0.3rem;
+}
+.MoonPhase:nth-child(3),.MoonPhase:nth-child(7){
+	margin-top: 0.2rem;
+}
+.MoonPhase:nth-child(4),.MoonPhase:nth-child(6){
+	margin-top: 0.1rem;
+}
+.MoonPhase:nth-child(1):after { /* New Moon */
+	right: 10%;
+}
+
+.MoonPhase:nth-child(2):after { /* Waxing Crescent */
+	right:30%;
+	border-radius: 40%;
+}
+
+.MoonPhase:nth-child(3):after { /* First Quarter */
+	right: 40%;
+}
+.MoonPhase:nth-child(4):after { /* Waxing Gibbous */
+	right: 60%;
+}
+
+.MoonPhase:nth-child(5):after { /* Full Moon */
+	right: 100%;
+}
+
+.MoonPhase:nth-child(6):after { /* Waning Gibbous */
+	left: 60%;
+}
+
+.MoonPhase:nth-child(7):after { /* Last Quarter */
+	left: 40%;
+}
+
+.MoonPhase:nth-child(8):after { /* Waning Crescent */
+	left: 30%;
+}
+
+.MoonPhase:nth-child(9):after { /* Waning Crescent */
+	left: 10%;
+}
+
+.LunaContainer[phase='New Moon'] > .MoonPhase:before:nth-child(1){
+	@apply bg-white;
+}
+.LunaContainer[phase='Waxing Crescent'] > .MoonPhase:before:nth-child(2){
+	@apply bg-white;
+}
+.LunaContainer[phase='First Quarter'] > .MoonPhase:before:nth-child(3){
+	@apply bg-white;
+}
+.LunaContainer[phase='Waxing Gibbous'] > .MoonPhase:before:nth-child(4){
+	@apply bg-white;
+}
+.LunaContainer[phase='Full Moon'] > .MoonPhase:before:nth-child(5){
+	@apply bg-white;
+}
+.LunaContainer[phase='Waning Gibbous'] > .MoonPhase:before:nth-child(6){
+	@apply bg-white;
+}
+
+.LunaContainer[phase='Last Quarter'] > .MoonPhase:before:nth-child(7){
+	@apply bg-white;
+}
+.LunaContainer[phase='Waning Crescent'] > .MoonPhase:before:nth-child(8){
+	@apply bg-white;
+}
+.LunaContainer[phase='Dark Crescent'] > .MoonPhase:before:nth-child(9){
+	@apply bg-white;
+}

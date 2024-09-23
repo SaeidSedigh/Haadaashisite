@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* base styles */
+body {
+  @apply text-gray-500;
+  background: #c0c0c0;
+}
+body[direction="fa"]{
+  direction: rtl;
+}
+
+.Main{
+  @apply max-w-screen-lg mx-auto overflow-hidden relative;
+}
